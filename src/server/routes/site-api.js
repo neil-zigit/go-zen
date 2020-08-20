@@ -180,7 +180,8 @@ router.post('/locations', getAuth(verify), async (req, res) => {
       return res.status(403).send({ error: err.toString() });
     }
     console.error('v1', 'post /locations', err);
-    return res.status(500).send({ error: 'Something failed!' });
+    
+    return res.status(500).send({ error: err});
   }
 });
 
