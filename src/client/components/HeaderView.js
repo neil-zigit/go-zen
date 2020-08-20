@@ -49,9 +49,6 @@ const HeaderView = ({
         <MenuIcon />
       </IconButton>
       <Typography variant='h6'>Background Geolocation Console</Typography>
-      <Link edge='end' href='http://transistorsoft.com'>
-        <img width='180' style={margin} src={logo} alt='' />
-      </Link>
     </Toolbar>
     {children}
   </AppBar>

@@ -142,7 +142,9 @@ export async function create(
   org,
   dev = {},
 ) {
+
   if (Array.isArray(params)) {
+    console.log("in reduce")
     return Promise.reduce(
       params,
       async (p, pp) => {
@@ -156,7 +158,7 @@ export async function create(
       0,
     );
   }
-
+  console.log("param",params)
   const {
     company_token: companyToken,
     device: propDevice = {},
@@ -168,6 +170,7 @@ export async function create(
     uuid,
     version,
   } = params;
+  console.log("propDevice",propDevice)
   const deviceInfo = {
     company_token: companyToken || propDevice.company_token || propDevice.org || dev.company_token || dev.org,
     framework: framework || propDevice.framework || dev.framework,
@@ -177,7 +180,9 @@ export async function create(
     uuid: uuid || propDevice.device_id || propDevice.uuid || dev.uuid || dev.device_id || 'UNKNOWN',
     version: version || propDevice.version || dev.version,
   };
+  console.log("deviceInfo",deviceInfo)
   const deviceId = propDevice.id || dev.id;
+  console.log("deviceId",deviceId)
   const token = org ||
     companyToken ||
     params.org ||
@@ -187,6 +192,7 @@ export async function create(
     token,
     deviceId ? { id: deviceId } : deviceInfo,
   );
+  console.log("device",device)
   const locations = Array.isArray(list)
     ? list
     : (
