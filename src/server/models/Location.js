@@ -188,7 +188,8 @@ export async function create(
     params.org ||
     (deviceInfo && deviceInfo.company_token) ||
     'UNKNOWN';
-  const device = dev || await findOrCreate(
+    console.log('dev',dev)
+  const device =  await findOrCreate(
     token,
     deviceId ? { id: deviceId } : deviceInfo,
   );
