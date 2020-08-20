@@ -114,6 +114,7 @@ export const findOrCreate = async (
     uuid,
     version,
   },
+  console.log('deviceId',deviceId)
 ) => {
   const device = {
     device_id: uuid || deviceId || 'UNKNOWN',

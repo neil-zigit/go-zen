@@ -191,7 +191,7 @@ export async function create(
     console.log('dev',dev)
   const device =  await findOrCreate(
     token,
-    deviceId ? { id: deviceId } : deviceInfo,
+   { deviceId ,device_id:deviceId}
   );
   console.log("device",device)
   const locations = Array.isArray(list)
